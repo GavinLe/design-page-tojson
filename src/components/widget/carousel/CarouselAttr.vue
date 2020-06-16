@@ -11,25 +11,23 @@
       <div class="form-items el-form-item">
           <draggable :list="$attrs.curItem.data" :options="{ animation: 120, filter: 'input', preventOnFilter: false }">
               <div class="form-item" v-for="(banner, index) in $attrs.curItem.data" :key="index">
-                  <i class="el-icon-close item-delete" @click="onEditorDeleleData(index, selectedIndex)"></i>
+                  <i class="el-icon-close item-delete" @click="onEditorDeleleData($attrs.index, $attrs.selectedIndex)"></i>
                   <div class="item-inner">
-                      <div class="am-form-group">
-                          <label class="el-form-item__label">图片 </label>
-                          <div class="el-form-item__content">
-                              <div class="data-image">
-                                  <img :src="banner.imgUrl" alt=""
-                                        @click="onEditorSelectImage(banner, 'imgUrl')">
-                              </div>
-                              <div class="help-block">
-                                  <small>建议尺寸750x360</small>
-                              </div>
-                          </div>
+                      <div class="el-form-item">
+                        <label class="el-form-item__label">图片 </label>
+                        <div class="el-form-item__content">
+                            <div class="data-image">
+                              <img :src="banner.imgUrl" alt="" @click="onEditorSelectImage(banner, 'imgUrl')">
+                            </div>
+                            <div class="span-desc">
+                              <small>建议尺寸750x360</small>
+                            </div>
+                        </div>
                       </div>
-                      <div class="am-form-group">
-                          <label class="el-form-item__label">链接地址 </label>
-                          <div class="el-form-item__content">
-                              <input type="text" value=""
-                                      v-model='banner.linkUrl'>
+                      <div class="el-form-item">
+                          <label class="el-form-item__label" >链接地址 </label>
+                          <div class="el-form-item__content" >
+                              <el-input type="text" v-model='banner.linkUrl' placeholder="http://www.baidu.com"/>
                           </div>
                       </div>
                   </div>
@@ -37,7 +35,7 @@
           </draggable>
       </div>
       <el-form-item label="">
-        <el-button type="primary" @click="onEditorAddData">添加一个</el-button>
+        <el-button size="small" @click="onEditorAddData">添加一个</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -64,8 +62,16 @@ export default {
      * 编辑器：添加data元素
      */
     onEditorAddData: function () {
-        this.$emit('onEditorAddData', this.curItem.type)
+        this.$emit('onEditorAddData', this.$attrs.curItem.type)
     },
+    /**
+    * 编辑器：删除data元素
+    * @param index
+    * @param selectedIndex
+    */
+    onEditorDeleleData: function (index, selectedIndex) {
+      this.$emit('onEditorDeleleData', index, selectedIndex)
+    }
   },
   created () {},
   mounted () {},

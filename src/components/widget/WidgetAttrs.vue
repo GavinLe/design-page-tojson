@@ -12,6 +12,16 @@
     <template v-if="$attrs.diyData.items.length && $attrs.curItem">
       <!-- 编辑器: 轮播 -->
       <carousel-attr v-if="$attrs.curItem.type === 'carousel'" v-on="$listeners" v-bind="$attrs" v-cloak></carousel-attr>
+      <!-- 编辑器: 单图组 -->
+      <image-signle-attr v-if="$attrs.curItem.type === 'imageSingle'" v-on="$listeners" v-bind="$attrs" v-cloak></image-signle-attr>
+      <!-- 编辑器: 橱窗 -->
+      <image-window-attr v-if="$attrs.curItem.type === 'imageWindow'" v-on="$listeners" v-bind="$attrs" v-cloak></image-window-attr>
+      <!-- 编辑器: 空白 -->
+      <blank-attr v-if="$attrs.curItem.type === 'blank'" v-on="$listeners" v-bind="$attrs" v-cloak></blank-attr>
+      <!-- 编辑器: 辅助线 -->
+      <guide-attr v-if="$attrs.curItem.type === 'guide'" v-on="$listeners" v-bind="$attrs" v-cloak></guide-attr>
+      <!-- 编辑器: 导航条 -->
+      <nav-bar-attr v-if="$attrs.curItem.type === 'navBar'" v-on="$listeners" v-bind="$attrs" v-cloak></nav-bar-attr>
     </template>
   </div>
 </template>
@@ -19,6 +29,11 @@
 <script>
 import PageAttr from "./page/PageAttr";
 import CarouselAttr from "./carousel/CarouselAttr";
+import BlankAttr from "./blank/BlankAttr";
+import ImageSignleAttr from "./image/ImageSignleAttr";
+import ImageWindowAttr from './image/ImageWindowAttr'
+import GuideAttr from "./guide/GuideAttr";
+import NavBarAttr from './nav/NavBarAttr'
 
 export default {
   name: "WidgetAttrs",
@@ -26,7 +41,12 @@ export default {
   props: {},
   components: {
     PageAttr,
-    CarouselAttr
+    CarouselAttr,
+    ImageSignleAttr,
+    ImageWindowAttr,
+    BlankAttr,
+    GuideAttr,
+    NavBarAttr
   },
   data() {
     return {};
@@ -62,7 +82,8 @@ export default {
 // 编辑器
 .diy-editor {
   width: 400px;
-  height: auto;
+  height: 614px;
+  overflow-y: auto;
   min-height: 100px;
   padding: 15px 10px;
   border: 1px solid #ddd;
@@ -87,47 +108,6 @@ export default {
     }
   }
 
-  // form 样式
-  /deep/ .tpl-form-line-form {
-    font-size: 1.3rem !important;
-    color: #656565;
-    .am-form-group {
-      margin: 1rem 0;
-    }
-    .am-form-label {
-      padding-top: 0;
-      line-height: 28px;
-      font-size: 1.3rem;
-    }
-    .am-radio-inline,
-    .am-checkbox-inline {
-      padding-top: 0;
-      font-size: 1.3rem;
-      line-height: 28px;
-      margin: 0 10px 0 0;
-      .am-ucheck-icons {
-        line-height: 28px;
-      }
-    }
-    input[type="text"] {
-      line-height: 28px;
-      font-size: 1.3rem;
-      padding: 0 5px;
-      color: #656565;
-    }
-    input[type="color"] {
-      display: inline-block;
-      -webkit-appearance: square-button;
-      width: 65px;
-      height: 26px;
-      background-color: #ffffff;
-      border: 1px solid #efefef;
-      padding: 0 4px;
-      margin: 1px 0;
-      cursor: pointer;
-    }
-  }
-
   // 图片
   /deep/ .data-image {
     display: inline-block;
@@ -144,14 +124,6 @@ export default {
     }
   }
 
-  /deep/ .editor-centent {
-    padding: 0 22px;
-    font-size: 13px;
-    p {
-      line-height: 24px;
-    }
-  }
-
   // form items
   /deep/ .form-items {
     height: auto;
@@ -162,9 +134,6 @@ export default {
       position: relative;
       border-radius: 3px;
       cursor: move;
-      input {
-        background: #f7fafc;
-      }
       // 删除元素
       .item-delete {
         position: absolute;
@@ -209,25 +178,34 @@ export default {
     }
   }
 
-  // 添加新元素
-  /deep/ .form-item-add {
-    width: 100%;
-    background: #fdfdfd;
-    color: #6b6b6b;
-    border: 1px solid #efefef;
-    outline: none;
-    padding: 10px 16px;
-    border-radius: 2px;
-    font-size: 12px;
-    line-height: 1;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    user-select: none;
-    transition: All 0.2s ease-in-out;
-    &:hover {
-      background: #f9f9f9;
+  /deep/ .el-form-item {
+      margin-bottom: 10px;
+      .el-form-item__label {
+        width: 100px;
+        text-align: right;
+        vertical-align: middle;
+        float: left;
+        font-size: 14px;
+        color: #606266;
+        line-height: 40px;
+        padding: 0 12px 0 0;
+        box-sizing: border-box;
+      }
+      .el-form-item__content {
+        margin-left: 110px;
+        text-align: left;
+        .content-center {
+          display: flex;
+          align-items: center;
+          .el-color-picker + .el-button { margin-left: 10px;}
+          .el-radio {margin-right: 15px;}
+        }
+        .span-desc {
+          font-size: 12px; 
+          color: #838fa1;
+          line-height: 20px;
+        }
+      }
     }
-  }
 }
 </style>

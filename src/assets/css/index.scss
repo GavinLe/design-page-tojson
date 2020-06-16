@@ -1,4 +1,43 @@
-.el-form-item__content {
-  text-align: left;
-  .span-desc {font-size: 12px; color: #838fa1;}
+[class*=am-avg-]:after{
+  clear:both
 }
+[class*=am-avg-] > li{
+  display:block;
+  height:auto;
+  float:left
+}
+ul {padding: 0; margin: 0;}
+.am-avg-sm-1 > li {width:100%}
+.am-avg-sm-1 > li:nth-of-type(n){ clear:none }
+.am-avg-sm-1 > li:nth-of-type(1n+1){clear:both}
+.am-avg-sm-2 > li{width:50%}
+.am-avg-sm-2 > li:nth-of-type(n){clear:none}
+.am-avg-sm-2>li:nth-of-type(2n+1){clear:both}
+.am-avg-sm-3>li{width:33.33333333%}
+.am-avg-sm-3>li:nth-of-type(n){clear:none}
+.am-avg-sm-3>li:nth-of-type(3n+1){clear:both}
+.am-avg-sm-4>li{width:25%}.am-avg-sm-4>li:nth-of-type(n){clear:none}
+.am-avg-sm-4>li:nth-of-type(4n+1){clear:both}
+.am-avg-sm-5>li{width:20%}.am-avg-sm-5>li:nth-of-type(n){clear:none}
+.am-avg-sm-5>li:nth-of-type(5n+1){clear:both}
+.am-avg-sm-6>li{width:16.66666667%}
+.am-avg-sm-6>li:nth-of-type(n){clear:none}
+.am-avg-sm-6>li:nth-of-type(6n+1){clear:both}
+.am-avg-sm-7>li{width:14.28571429%}
+.am-avg-sm-7>li:nth-of-type(n){clear:none}
+.am-avg-sm-7>li:nth-of-type(7n+1){clear:both}
+.am-avg-sm-8>li{width:12.5%}
+.am-avg-sm-8>li:nth-of-type(n){clear:none}
+.am-avg-sm-8>li:nth-of-type(8n+1){clear:both}
+.am-avg-sm-9>li{width:11.11111111%}
+.am-avg-sm-9>li:nth-of-type(n){clear:none}
+.am-avg-sm-9>li:nth-of-type(9n+1){clear:both}
+.am-avg-sm-10>li{width:10%}
+.am-avg-sm-10>li:nth-of-type(n){clear:none}
+.am-avg-sm-10>li:nth-of-type(10n+1){clear:both}
+.am-avg-sm-11>li{width:9.09090909%}
+.am-avg-sm-11>li:nth-of-type(n){clear:none}
+.am-avg-sm-11>li:nth-of-type(11n+1){clear:both}
+.am-avg-sm-12>li{width:8.33333333%}
+.am-avg-sm-12>li:nth-of-type(n){clear:none}
+.am-avg-sm-12>li:nth-of-type(12n+1){clear:both}

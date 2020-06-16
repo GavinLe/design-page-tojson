@@ -19,7 +19,7 @@ const defaultData = {
       btnShape: 'round'
     },
     params: {
-      interval: '2800'
+      interval: 2800
     },
     data: [{
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/01.png',
@@ -39,14 +39,12 @@ const defaultData = {
       paddingLeft: 0,
       background: '#ffffff'
     },
-    data: [{
-      imgUrl: 'assets/img/diy/banner/01.png',
-      imgName: 'image-1.jpg',
-      linkUrl: ''
+    params: {
+      displayDateTimeRange: [] // 显示时间控制
     },
-    {
-      imgUrl: 'assets/img/diy/banner/01.png',
-      imgName: 'banner-2.jpg',
+    data: [{
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/01.png',
+      imgName: 'image-1.jpg',
       linkUrl: ''
     }
     ]
@@ -56,31 +54,31 @@ const defaultData = {
     type: 'navBar',
     style: {
       background: '#ffffff',
-      rowsNum: '4'
+      rowsNum: 4
     },
     data: [{
-      imgUrl: 'assets/img/diy/navbar/01.png',
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
       imgName: 'icon-1.png',
       linkUrl: '',
       text: '按钮文字1',
       color: '#666666'
     },
     {
-      imgUrl: 'assets/img/diy/navbar/01.png',
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
       imgName: 'icon-2.jpg',
       linkUrl: '',
       text: '按钮文字2',
       color: '#666666'
     },
     {
-      imgUrl: 'assets/img/diy/navbar/01.png',
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
       imgName: 'icon-3.jpg',
       linkUrl: '',
       text: '按钮文字3',
       color: '#666666'
     },
     {
-      imgUrl: 'assets/img/diy/navbar/01.png',
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
       imgName: 'icon-4.jpg',
       linkUrl: '',
       text: '按钮文字4',
@@ -92,7 +90,7 @@ const defaultData = {
     name: '辅助空白',
     type: 'blank',
     style: {
-      height: '20',
+      height: 20,
       background: '#ffffff'
     }
   },
@@ -102,9 +100,9 @@ const defaultData = {
     style: {
       background: '#ffffff',
       lineStyle: 'solid',
-      lineHeight: '1',
+      lineHeight: 1,
       lineColor: '#000000',
-      paddingTop: 10
+      paddingTop: 0
     }
   },
   video: {
@@ -177,25 +175,25 @@ const defaultData = {
     name: '图片橱窗',
     type: 'imageWindow',
     style: {
-      paddingTop: '0',
-      paddingLeft: '0',
+      paddingTop: 0,
+      paddingLeft: 0,
       background: '#ffffff',
-      layout: '2'
+      layout: 2
     },
     data: [{
-      imgUrl: 'assets/img/diy/window/01.jpg',
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/01.jpg', // 'assets/img/diy/window/01.jpg',
       linkUrl: ''
     },
     {
-      imgUrl: 'assets/img/diy/window/02.jpg',
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/02.jpg', // 'assets/img/diy/window/02.jpg',
       linkUrl: ''
     },
     {
-      imgUrl: 'assets/img/diy/window/03.jpg',
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/03.jpg', // 'assets/img/diy/window/03.jpg',
       linkUrl: ''
     },
     {
-      imgUrl: 'assets/img/diy/window/04.jpg',
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/04.jpg', // 'assets/img/diy/window/04.jpg',
       linkUrl: ''
     }
     ],

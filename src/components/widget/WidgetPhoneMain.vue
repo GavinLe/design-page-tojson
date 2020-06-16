@@ -10,7 +10,16 @@
         <template v-for="(item, index) in $attrs.diyData.items">
               <!-- diy元素: 图片轮播 -->
               <carousel v-if="item.type == 'carousel'" :key="'carousel' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></carousel>
-              <!-- diy元素: 图片轮播 -->
+              <!-- diy元素: 单图组 -->
+              <image-single v-else-if="item.type == 'imageSingle'" :key="'imageSingle' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></image-single>
+              <!-- diy元素: 橱窗 -->
+              <image-window v-else-if="item.type == 'imageWindow'" :key="'imageWindow' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></image-window>
+              <!-- diy元素: 辅助空白 -->
+              <blank v-else-if="item.type == 'blank'" :key="'blank' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></blank>
+              <!-- diy元素: 辅助线 -->
+              <guide v-else-if="item.type == 'guide'" :key="'guide' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></guide>
+              <!-- diy元素: 导航 -->
+              <nav-bar v-else-if="item.type == 'navBar'" :key="'navBar' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></nav-bar>
           </template>
       </draggable>
     </div>
@@ -20,6 +29,11 @@
 <script>
 import draggable from 'vuedraggable'
 import Carousel from './carousel/Carousel'
+import ImageSingle from './image/ImageSignle'
+import Blank from './blank/Blank'
+import Guide from './guide/Guide'
+import ImageWindow from './image/ImageWindow'
+import NavBar from './nav/NavBar'
 
 export default {
   name: 'WidgetPhoneMain',
@@ -28,7 +42,12 @@ export default {
   },
   components: {
     draggable,
-    Carousel
+    Carousel,
+    ImageSingle,
+    ImageWindow,
+    Blank,
+    Guide,
+    NavBar
   },
   data () {
     return {
@@ -94,7 +113,6 @@ export default {
       .drag {
         display: block;
         overflow: hidden;
-        font-size: 1.3rem;
         .btn-edit-del {
           height: 16px;
           position: absolute;
@@ -215,6 +233,7 @@ export default {
         img {
           display: block;
           width: 100%;
+          height: 150px;
         }
       }
 

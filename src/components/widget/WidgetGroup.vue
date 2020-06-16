@@ -6,7 +6,7 @@
           <div class="navs-group" :key="index">
             <div class="title" v-text="item.groupName" ></div>
             <div class="navs-components">
-              <nav class="special" @click="onAddItem(sub.type)" v-for="(sub, subIndex) in item.items" :key="index + '_' +subIndex">
+              <nav class="special" @click="onAddItem(sub.type)" v-for="(sub, subIndex) in handleGroupList(item.items)" :key="index + '_' +subIndex">
                   <p class="item-icon" v-if="sub.icon"><i :class="sub.icon"></i></p>
                   <p v-text="sub.title"></p>
               </nav>
@@ -31,12 +31,12 @@ export default {
           {title: '图片轮播', icon: '', type: 'carousel'},
           {title: '单图组', icon: '', type: 'imageSingle'},
           {title: '图片橱窗', icon: '', type: 'imageWindow'},
-          {title: '文章组', icon: '', type: 'article'},
-          {title: '视频组', icon: '', type: 'video'},
+          {title: '文章组', icon: '', type: 'article', hidden: true},
+          {title: '视频组', icon: '', type: 'video', hidden: true},
         ]},
         {groupName: '商城组件', items: [
-          {title: '搜索框', icon: '', type: 'search'},
-          {title: '公告组', icon: '', type: 'notice'},
+          {title: '搜索框', icon: '', type: 'search', hidden: true},
+          {title: '公告组', icon: '', type: 'notice', hidden: true},
           {title: '导航组', icon: '', type: 'navBar'},
           {title: '商品组', icon: '', type: 'goods'},
           {title: '拼团商品', icon: '', type: 'sharingGoods'},
@@ -54,6 +54,13 @@ export default {
   methods: {
     onAddItem (widgetType) {
       this.$emit('handleAddItem', widgetType)
+    },
+    handleGroupList (list) {
+      const nList = list.filter((item) => {
+        console.log('======= group ========', item.hidden)
+        return item.hidden ? false : true
+      })
+      return nList
     }
   },
   created () {},

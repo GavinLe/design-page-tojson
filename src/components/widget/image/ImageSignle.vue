@@ -1,12 +1,9 @@
 <template>
-  <div class="drag optional" :class="{selected: index === $attrs.selectedIndex}" @click.stop="onEditer(index)">
-    <div class="diy-banner">
-      <el-carousel :interval="interval" arrow="always" height="150px">
-        <el-carousel-item v-for="(item, index) in item.data" :key="index">
-          <img :src="item.imgUrl" height="150">
-        </el-carousel-item>
-        
-      </el-carousel>
+  <div class="drag optional" :class="{selected:index === $attrs.selectedIndex}" @click.stop="onEditer(index)">
+    <div class="diy-imageSingle" :style="{ paddingBottom: item.style.paddingTop + 'px', background: item.style.background}">
+      <div class="item-image" v-for="(imageSingle, imageIndex) in item.data" :style="{padding: item.style.paddingTop + 'px ' + item.style.paddingLeft + 'px 0'}" :key="imageIndex">
+        <img :src="imageSingle.imgUrl">
+      </div>
     </div>
     <div class="btn-edit-del">
       <div class="btn-del" @click.stop="onDeleleItem(index)">删除</div>
@@ -16,8 +13,7 @@
 
 <script>
 export default {
-  name: 'WidgetCarousel',
-  inheritAttrs: false,
+  name: 'WidgetImageSignle',
   props: {
     index: {
       type: [String, Number],
@@ -32,14 +28,10 @@ export default {
   },
   data () {
     return {
+
     }
   },
-  computed: {
-    interval () {
-      console.log(this.item.params.interval)
-      return Number(this.item.params.interval)
-    }
-  },
+  computed: {},
   watch: {},
   methods: {
     onEditer: function (index) {
@@ -50,9 +42,7 @@ export default {
     }
   },
   created () {},
-  mounted () {
-    console.log(this.item)
-  },
+  mounted () {},
   beforeDestroy () {}
 }
 </script>

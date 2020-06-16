@@ -1,13 +1,19 @@
 <template>
-<!-- 页面编辑器 diy-->
+<div>
+  <!-- 页面编辑器 diy-->
   <div class="diy-wrapper">
     <!-- 组件选择 -->
     <widget-group ref="group" @handleAddItem="onAddItem"></widget-group>
     <!-- 首页页面显示 -->
     <widget-phone-main ref="phoneMain" :selectedIndex="selectedIndex" :diyData="diyData" @onEditer="handleSelectEdit" @onDeleleItem="handleoODeleleItem"></widget-phone-main>
     <!-- 属性编辑 -->
-    <widget-attrs ref="attrs" :selectedIndex="selectedIndex" :diyData="diyData" :curItem="curItem" @onEditorAddData="handleOnEditorAddData"></widget-attrs>
+    <widget-attrs ref="attrs" :selectedIndex="selectedIndex" :diyData="diyData" :curItem="curItem" @onEditorAddData="handleOnEditorAddData" @onEditorDeleleData="handleOnEditorDeleleData" @onEditResetField="handleOnEditResetFiled"></widget-attrs>
   </div>
+  <div class="save-button">
+    <el-button @click="onSubmit">保存页面</el-button>
+  </div>
+</div>
+  
 </template>
 
 <script>
@@ -76,6 +82,7 @@ export default {
     },
     onAddItem (widgetType) {
       // 验证新增Diy组件
+      console.log('=== widgetType ===', widgetType)
       if (!this.onCheckAddItem(widgetType)) {
           return false;
       }
@@ -110,6 +117,46 @@ export default {
       // 新增data数据
       var newDataItem = Object.assign({}, defaultData[type].data[0])
       this.curItem.data.push(newDataItem);
+    },
+    /**
+     * 编辑器：删除data元素
+     * @param index
+     * @param selectedIndex
+     */
+    handleOnEditorDeleleData: function (index, selectedIndex) {
+      console.log('onEditorDeleleData', index, selectedIndex)
+      if (this.diyData.items[selectedIndex].data.length <= 1) {
+          this.$message({
+            type: 'warning',
+            message: '至少保留一个！'
+          });
+          return false;
+      }
+      this.diyData.items[selectedIndex].data.splice(index, 1);
+    },
+    handleOnEditResetFiled: function (holder, attribute, value) {
+      holder[attribute] = value
+    },
+    /**
+     * 提交后端保存
+     * @returns {boolean}
+     */
+    onSubmit: function () {
+        if (this.diyData.items.length <= 0) {
+          this.$message({
+            type: 'warning',
+            message: '至少保留一个！'
+          });
+          return false
+        }
+        var data = JSON.stringify(this.diyData);
+        var timeStamp = parseInt(new Date().getTime() / 1000);
+        console.log(this.diyData, data)
+        // localStorage.setItem("diy_" + timeStamp, data);
+        // $.post('', {data: data}, function (result) {
+        //     result.code === 1 ? $.show_success(result.msg, result.url)
+        //         : $.show_error(result.msg);
+        // });
     }
   },
   created () {},
@@ -122,4 +169,10 @@ export default {
   .diy-wrapper {
     display: flex;
   }
+  .save-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 20px;
+    }
 </style>

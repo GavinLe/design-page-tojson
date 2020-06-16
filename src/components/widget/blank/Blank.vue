@@ -1,13 +1,6 @@
 <template>
-  <div class="drag optional" :class="{selected: index === $attrs.selectedIndex}" @click.stop="onEditer(index)">
-    <div class="diy-banner">
-      <el-carousel :interval="interval" arrow="always" height="150px">
-        <el-carousel-item v-for="(item, index) in item.data" :key="index">
-          <img :src="item.imgUrl" height="150">
-        </el-carousel-item>
-        
-      </el-carousel>
-    </div>
+  <div class="drag optional" :class="{selected:index === $attrs.selectedIndex}" @click.stop="onEditer(index)">
+    <div class="diy-blank" :style="{height: item.style.height +'px', background:item.style.background }"></div>
     <div class="btn-edit-del">
       <div class="btn-del" @click.stop="onDeleleItem(index)">删除</div>
     </div>
@@ -16,7 +9,7 @@
 
 <script>
 export default {
-  name: 'WidgetCarousel',
+  name: 'WidgetBlank',
   inheritAttrs: false,
   props: {
     index: {
@@ -32,14 +25,10 @@ export default {
   },
   data () {
     return {
+
     }
   },
-  computed: {
-    interval () {
-      console.log(this.item.params.interval)
-      return Number(this.item.params.interval)
-    }
-  },
+  computed: {},
   watch: {},
   methods: {
     onEditer: function (index) {
@@ -50,9 +39,7 @@ export default {
     }
   },
   created () {},
-  mounted () {
-    console.log(this.item)
-  },
+  mounted () {},
   beforeDestroy () {}
 }
 </script>
