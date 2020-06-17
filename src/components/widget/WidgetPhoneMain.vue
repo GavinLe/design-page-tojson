@@ -20,6 +20,8 @@
               <guide v-else-if="item.type == 'guide'" :key="'guide' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></guide>
               <!-- diy元素: 导航 -->
               <nav-bar v-else-if="item.type == 'navBar'" :key="'navBar' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></nav-bar>
+              <!-- diy元素: 商品 -->
+              <goods v-else-if="item.type == 'goods'" :key="'goods' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></goods>
           </template>
       </draggable>
     </div>
@@ -34,6 +36,7 @@ import Blank from './blank/Blank'
 import Guide from './guide/Guide'
 import ImageWindow from './image/ImageWindow'
 import NavBar from './nav/NavBar'
+import Goods from './goods/Goods'
 
 export default {
   name: 'WidgetPhoneMain',
@@ -47,7 +50,8 @@ export default {
     ImageWindow,
     Blank,
     Guide,
-    NavBar
+    NavBar,
+    Goods
   },
   data () {
     return {

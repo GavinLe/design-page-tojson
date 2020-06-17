@@ -14,6 +14,7 @@
 <script>
 export default {
   name: 'WidgetImageSignle',
+  inheritAttrs: false,
   props: {
     index: {
       type: [String, Number],

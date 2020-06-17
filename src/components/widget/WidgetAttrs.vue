@@ -22,6 +22,8 @@
       <guide-attr v-if="$attrs.curItem.type === 'guide'" v-on="$listeners" v-bind="$attrs" v-cloak></guide-attr>
       <!-- 编辑器: 导航条 -->
       <nav-bar-attr v-if="$attrs.curItem.type === 'navBar'" v-on="$listeners" v-bind="$attrs" v-cloak></nav-bar-attr>
+      <!-- 编辑器: 商品组 -->
+      <goods-attr v-if="$attrs.curItem.type === 'goods'" v-on="$listeners" v-bind="$attrs" v-cloak></goods-attr>
     </template>
   </div>
 </template>
@@ -33,7 +35,9 @@ import BlankAttr from "./blank/BlankAttr";
 import ImageSignleAttr from "./image/ImageSignleAttr";
 import ImageWindowAttr from './image/ImageWindowAttr'
 import GuideAttr from "./guide/GuideAttr";
-import NavBarAttr from './nav/NavBarAttr'
+import NavBarAttr from './nav/NavBarAttr';
+import GoodsAttr from './goods/GoodsAttr';
+
 
 export default {
   name: "WidgetAttrs",
@@ -46,7 +50,8 @@ export default {
     ImageWindowAttr,
     BlankAttr,
     GuideAttr,
-    NavBarAttr
+    NavBarAttr,
+    GoodsAttr
   },
   data() {
     return {};

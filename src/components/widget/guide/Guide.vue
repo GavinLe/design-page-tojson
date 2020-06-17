@@ -13,6 +13,7 @@
 <script>
 export default {
   name: 'WidgetGuide',
+  inheritAttrs: false,
   props: {
     index: {
       type: [String, Number],

@@ -8,7 +8,7 @@
             <div class="navs-components">
               <nav class="special" @click="onAddItem(sub.type)" v-for="(sub, subIndex) in handleGroupList(item.items)" :key="index + '_' +subIndex">
                   <p class="item-icon" v-if="sub.icon"><i :class="sub.icon"></i></p>
-                  <p v-text="sub.title"></p>
+                  <p class="item-label" v-text="sub.title"></p>
               </nav>
             </div>
           </div>
@@ -151,6 +151,9 @@ export default {
     }
     .special {
       background: #f4f4f4;
+      .item-label {
+        padding: 10px 3px;
+      }
     }
     .page-setup {
       width: auto;

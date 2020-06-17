@@ -36,7 +36,7 @@
               <el-radio-group v-model="$attrs.curItem.style.layout">
                 <el-radio :label="2">堆积两列</el-radio>
                 <el-radio :label="3">堆积三列</el-radio>
-                <el-radio :label="4">堆积四列</el-radio>
+                <el-radio :label="4" v-if="false">堆积四列</el-radio>
               </el-radio-group>
               <div class="span-desc">
                 <small>请确保所有图片的尺寸/比例相同。</small>

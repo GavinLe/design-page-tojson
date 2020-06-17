@@ -19,7 +19,8 @@ const defaultData = {
       btnShape: 'round'
     },
     params: {
-      interval: 2800
+      interval: 2800,
+      displayDateTimeRange: [] // 显示时间控制
     },
     data: [{
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/01.png',
@@ -55,6 +56,9 @@ const defaultData = {
     style: {
       background: '#ffffff',
       rowsNum: 4
+    },
+    params: {
+      displayDateTimeRange: [] // 显示时间控制
     },
     data: [{
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
@@ -180,6 +184,9 @@ const defaultData = {
       background: '#ffffff',
       layout: 2
     },
+    params: {
+      displayDateTimeRange: [] // 显示时间控制
+    },
     data: [{
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/01.jpg', // 'assets/img/diy/window/01.jpg',
       linkUrl: ''
@@ -203,77 +210,61 @@ const defaultData = {
     name: '商品组',
     type: 'goods',
     params: {
-      source: 'auto', // choice; auto
       auto: {
         category: 0,
         goodsSort: 'all', // all; sales; price
         showNum: 6
-      }
+      },
+      displayDateTimeRange: [] // 显示时间控制
     },
     style: {
       background: '#F6F6F6',
       display: 'list', // list; slide
-      column: '2',
+      column: 2,
       show: {
         goodsName: '1',
-        goodsPrice: '1',
-        linePrice: '1',
-        sellingPoint: '0',
-        goodsSales: '0'
+        goodsPrice: 1,
+        linePrice: 1,
+        sellingPoint: 0,
+        goodsSales: 0
       }
     },
     // "自动获取": 默认数据
-    defaultData: [{
-      goodsName: '此处显示商品名称',
-      image: 'assets/img/diy/goods/01.png',
-      goodsPrice: '99.00',
-      linePrice: '139.00',
-      sellingPoint: '此款商品美观大方 不容错过',
-      goodsSales: '100'
-    },
-    {
-      goodsName: '此处显示商品名称',
-      image: 'assets/img/diy/goods/01.png',
-      goodsPrice: '99.00',
-      linePrice: '139.00',
-      sellingPoint: '此款商品美观大方 不容错过',
-      goodsSales: '100'
-    },
-    {
-      goodsName: '此处显示商品名称',
-      image: 'assets/img/diy/goods/01.png',
-      goodsPrice: '99.00',
-      linePrice: '139.00',
-      sellingPoint: '此款商品美观大方 不容错过',
-      goodsSales: '100'
-    },
-    {
-      goodsName: '此处显示商品名称',
-      image: 'assets/img/diy/goods/01.png',
-      goodsPrice: '99.00',
-      linePrice: '139.00',
-      sellingPoint: '此款商品美观大方 不容错过',
-      goodsSales: '100'
-    }
-    ],
-    // "手动选择": 默认数据
     data: [{
-      goodsName: '此处显示商品名称',
-      image: 'assets/img/diy/goods/01.png',
+      goodsName: '此处显示商品名称1',
+      goodsDesc: '商品描述商品描述商品描述1',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       goodsPrice: '99.00',
       linePrice: '139.00',
       sellingPoint: '此款商品美观大方 不容错过',
-      goodsSales: '100',
-      isDefault: true
+      goodsSales: '100'
     },
     {
-      goodsName: '此处显示商品名称',
-      image: 'assets/img/diy/goods/01.png',
+      goodsName: '此处显示商品名称2',
+      goodsDesc: '商品描述商品描述商品描述2',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       goodsPrice: '99.00',
       linePrice: '139.00',
       sellingPoint: '此款商品美观大方 不容错过',
-      goodsSales: '100',
-      isDefault: true
+      goodsSales: '100'
+    },
+    {
+      goodsName: '此处显示商品名称3',
+      goodsDesc: '商品描述商品描述商品描述商品描述3',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
+      goodsPrice: '99.00',
+      linePrice: '139.00',
+      sellingPoint: '此款商品美观大方 不容错过',
+      goodsSales: '100'
+    },
+    {
+      goodsName: '此处显示商品名称4',
+      goodsDesc: '商品描述商品描述商品描述商品描述4',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
+      goodsPrice: '99.00',
+      linePrice: '139.00',
+      sellingPoint: '此款商品美观大方 不容错过',
+      goodsSales: '100'
     }
     ]
   },
@@ -322,28 +313,28 @@ const defaultData = {
     // "自动获取": 默认数据
     defaultData: [{
       goodsName: '此处是拼团商品',
-      image: 'assets/img/diy/goods/01.png',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       sellingPoint: '此款商品美观大方 性价比较高 不容错过',
       sharingPrice: '99.00',
       linePrice: '139.00'
     },
     {
       goodsName: '此处是拼团商品',
-      image: 'assets/img/diy/goods/01.png',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       sellingPoint: '此款商品美观大方 性价比较高 不容错过',
       goodsPrice: '99.00',
       linePrice: '139.00'
     },
     {
       goodsName: '此处是拼团商品',
-      image: 'assets/img/diy/goods/01.png',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       sellingPoint: '此款商品美观大方 性价比较高 不容错过',
       sharingPrice: '99.00',
       linePrice: '139.00'
     },
     {
       goodsName: '此处是拼团商品',
-      image: 'assets/img/diy/goods/01.png',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       sellingPoint: '此款商品美观大方 性价比较高 不容错过',
       sharingPrice: '99.00',
       linePrice: '139.00'
@@ -352,7 +343,7 @@ const defaultData = {
     // "手动选择": 默认数据
     data: [{
       goodsName: '此处是拼团商品',
-      image: 'assets/img/diy/goods/01.png',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       sellingPoint: '此款商品美观大方 性价比较高 不容错过',
       sharingPrice: '99.00',
       linePrice: '139.00',
@@ -360,7 +351,7 @@ const defaultData = {
     },
     {
       goodsName: '此处是拼团商品',
-      image: 'assets/img/diy/goods/01.png',
+      image: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       sellingPoint: '此款商品美观大方 性价比较高 不容错过',
       sharingPrice: '99.00',
       linePrice: '139.00',
@@ -386,19 +377,19 @@ const defaultData = {
     // "手动选择": 默认数据
     data: [{
       goodsName: '此处是秒杀商品',
-      ggoodsImage: 'assets/img/diy/goods/01.png',
+      ggoodsImage: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       seckillPrice: '69.00',
       originalPrice: '139.00'
     },
     {
       goodsName: '此处是秒杀商品',
-      ggoodsImage: 'assets/img/diy/goods/01.png',
+      ggoodsImage: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       seckillPrice: '69.00',
       originalPrice: '139.00'
     },
     {
       goodsName: '此处是秒杀商品',
-      ggoodsImage: 'assets/img/diy/goods/01.png',
+      ggoodsImage: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/goods/01.png', // 'assets/img/diy/goods/01.png',
       seckillPrice: '69.00',
       originalPrice: '139.00'
     }

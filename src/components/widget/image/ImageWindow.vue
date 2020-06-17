@@ -40,6 +40,7 @@
 <script>
 export default {
   name: 'WidgetImageWindow',
+  inheritAttrs: false,
   props: {
     index: {
       type: [String, Number],
