@@ -47,14 +47,16 @@
                           <label class="el-form-item__label">图片 </label>
                           <div class="el-form-item__content">
                               <div class="data-image">
-                                <img :src="imageSingle.imgUrl" alt="" @click="onEditorSelectImage(imageSingle, 'imgUrl')">
+                                <!-- <img :src="imageSingle.imgUrl" alt="" @click="onEditorSelectImage(imageSingle, 'imgUrl')"> -->
+                                <base-upload-image :imageUrl="imageUrl"></base-upload-image>
                               </div>
                           </div>
                       </div>
                       <div class="el-form-item">
                           <label class="el-form-item__label">链接地址 </label>
                           <div class="el-form-item__content">
-                            <el-input type="text" v-model='imageSingle.linkUrl' placeholder="http://www.baidu.com"></el-input>
+                            <!-- <el-input type="text" v-model='imageSingle.linkUrl' placeholder="http://www.baidu.com"></el-input> -->
+                            <base-select-link :linkType="imageSingle.linkType" :linkUrl="imageSingle.linkUrl"></base-select-link>
                           </div>
                       </div>
                   </div>
@@ -69,16 +71,20 @@
 </template>
 
 <script>
+import BaseUploadImage from '../base/BaseUploadImage'
+import BaseSelectLink from '../base/BaseSelectLink'
 import draggable from 'vuedraggable'
 export default {
   name: 'ImageSignleAttr',
   props: {},
   components: {
-    draggable
+    draggable,
+    BaseUploadImage,
+    BaseSelectLink
   },
   data () {
     return {
-
+      imageUrl: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
     }
   },
   computed: {},

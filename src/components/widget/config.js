@@ -46,8 +46,32 @@ const defaultData = {
     data: [{
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/01.png',
       imgName: 'image-1.jpg',
+      linkType: '',
       linkUrl: ''
     }
+    ]
+  },
+  imageHotSpot: {
+    name: '热图组',
+    type: 'imageHotSpot',
+    style: {
+      imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/01.png'
+    },
+    params: {
+      displayDateTimeRange: [] // 显示时间控制
+    },
+    data: [
+      {
+        name: '', // 名称
+        linkType: '',
+        linkUrl: '', // 跳转链接
+        absolute: {
+          width: 50,
+          height: 50,
+          x: 0,
+          y: 0
+        }
+      }
     ]
   },
   navBar: {
@@ -64,6 +88,7 @@ const defaultData = {
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
       imgName: 'icon-1.png',
       linkUrl: '',
+      linkType: '',
       text: '按钮文字1',
       color: '#666666'
     },
@@ -71,6 +96,7 @@ const defaultData = {
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
       imgName: 'icon-2.jpg',
       linkUrl: '',
+      linkType: '',
       text: '按钮文字2',
       color: '#666666'
     },
@@ -78,6 +104,7 @@ const defaultData = {
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
       imgName: 'icon-3.jpg',
       linkUrl: '',
+      linkType: '',
       text: '按钮文字3',
       color: '#666666'
     },
@@ -85,6 +112,7 @@ const defaultData = {
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/nav/01.png', // 'assets/img/diy/navbar/01.png',
       imgName: 'icon-4.jpg',
       linkUrl: '',
+      linkType: '',
       text: '按钮文字4',
       color: '#666666'
     }
@@ -189,18 +217,22 @@ const defaultData = {
     },
     data: [{
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/01.jpg', // 'assets/img/diy/window/01.jpg',
+      linkType: '',
       linkUrl: ''
     },
     {
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/02.jpg', // 'assets/img/diy/window/02.jpg',
+      linkType: '',
       linkUrl: ''
     },
     {
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/03.jpg', // 'assets/img/diy/window/03.jpg',
+      linkType: '',
       linkUrl: ''
     },
     {
       imgUrl: 'https://prd-wechat.oss-cn-hangzhou.aliyuncs.com/images/diy/window/04.jpg', // 'assets/img/diy/window/04.jpg',
+      linkType: '',
       linkUrl: ''
     }
     ],

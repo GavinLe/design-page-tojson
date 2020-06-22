@@ -14,6 +14,8 @@
               <image-single v-else-if="item.type == 'imageSingle'" :key="'imageSingle' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></image-single>
               <!-- diy元素: 橱窗 -->
               <image-window v-else-if="item.type == 'imageWindow'" :key="'imageWindow' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></image-window>
+              <!-- diy元素: 热图 -->
+              <image-hot-spot v-else-if="item.type == 'imageHotSpot'" :key="'imageHotSpot' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></image-hot-spot>
               <!-- diy元素: 辅助空白 -->
               <blank v-else-if="item.type == 'blank'" :key="'blank' + index" :item="item" :index="index" v-on="$listeners" v-bind="$attrs" v-cloak></blank>
               <!-- diy元素: 辅助线 -->
@@ -37,6 +39,7 @@ import Guide from './guide/Guide'
 import ImageWindow from './image/ImageWindow'
 import NavBar from './nav/NavBar'
 import Goods from './goods/Goods'
+import ImageHotSpot from './image/ImageHotSpot'
 
 export default {
   name: 'WidgetPhoneMain',
@@ -48,6 +51,7 @@ export default {
     Carousel,
     ImageSingle,
     ImageWindow,
+    ImageHotSpot,
     Blank,
     Guide,
     NavBar,

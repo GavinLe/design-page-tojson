@@ -31,16 +31,17 @@ export default {
           {title: '图片轮播', icon: '', type: 'carousel'},
           {title: '单图组', icon: '', type: 'imageSingle'},
           {title: '图片橱窗', icon: '', type: 'imageWindow'},
+          {title: '热图', icon: '', type: 'imageHotSpot'},
           {title: '文章组', icon: '', type: 'article', hidden: true},
           {title: '视频组', icon: '', type: 'video', hidden: true},
         ]},
         {groupName: '商城组件', items: [
+          {title: '导航组', icon: '', type: 'navBar'},
           {title: '搜索框', icon: '', type: 'search', hidden: true},
           {title: '公告组', icon: '', type: 'notice', hidden: true},
-          {title: '导航组', icon: '', type: 'navBar'},
-          {title: '商品组', icon: '', type: 'goods'},
-          {title: '拼团商品', icon: '', type: 'sharingGoods'},
-          {title: '秒杀商品', icon: '', type: 'sharpGoods'}
+          {title: '商品组', icon: '', type: 'goods', hidden: true},
+          {title: '拼团商品', icon: '', type: 'sharingGoods', hidden: true},
+          {title: '秒杀商品', icon: '', type: 'sharpGoods', hidden: true}
         ]},
         {groupName: '工具组件', items: [
           {title: '辅助空白', icon: '', type: 'blank'},

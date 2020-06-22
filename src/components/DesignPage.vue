@@ -115,7 +115,7 @@ export default {
     },
     handleOnEditorAddData(type) {
       // 新增data数据
-      var newDataItem = Object.assign({}, defaultData[type].data[0])
+      var newDataItem = Object.assign({}, JSON.parse(JSON.stringify(defaultData[type].data[0])))
       this.curItem.data.push(newDataItem);
     },
     /**

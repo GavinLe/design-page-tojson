@@ -16,6 +16,8 @@
       <image-signle-attr v-if="$attrs.curItem.type === 'imageSingle'" v-on="$listeners" v-bind="$attrs" v-cloak></image-signle-attr>
       <!-- 编辑器: 橱窗 -->
       <image-window-attr v-if="$attrs.curItem.type === 'imageWindow'" v-on="$listeners" v-bind="$attrs" v-cloak></image-window-attr>
+      <!-- 编辑器: 热区 -->
+      <image-hot-spot-attr v-if="$attrs.curItem.type === 'imageHotSpot'" v-on="$listeners" v-bind="$attrs" v-cloak></image-hot-spot-attr>
       <!-- 编辑器: 空白 -->
       <blank-attr v-if="$attrs.curItem.type === 'blank'" v-on="$listeners" v-bind="$attrs" v-cloak></blank-attr>
       <!-- 编辑器: 辅助线 -->
@@ -37,6 +39,7 @@ import ImageWindowAttr from './image/ImageWindowAttr'
 import GuideAttr from "./guide/GuideAttr";
 import NavBarAttr from './nav/NavBarAttr';
 import GoodsAttr from './goods/GoodsAttr';
+import ImageHotSpotAttr from './image/ImageHotSpotAttr'
 
 
 export default {
@@ -48,6 +51,7 @@ export default {
     CarouselAttr,
     ImageSignleAttr,
     ImageWindowAttr,
+    ImageHotSpotAttr,
     BlankAttr,
     GuideAttr,
     NavBarAttr,
@@ -124,8 +128,7 @@ export default {
     cursor: pointer;
     img {
       display: block;
-      max-width: 100%;
-      height: 50px;
+      max-width: 120px;
     }
   }
 
